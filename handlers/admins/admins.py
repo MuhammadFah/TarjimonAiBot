@@ -52,7 +52,7 @@ async def get_admin_message_state(message: Message, state: FSMContext):
 
             if content == 'text':
                 await bot.send_message(user['user_id'], message.html_text, reply_markup=btn)
-                await asyncio.sleep(0.3)
+                await asyncio.sleep(0.5)
 
             elif content == 'photo':
                 await bot.send_photo(user['user_id'], photo=message.photo[-1].file_id, caption=context, reply_markup=conte)
