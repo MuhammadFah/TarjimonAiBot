@@ -13,7 +13,6 @@ async def bot_start(message: Message):
     user = message.from_user.id
     username = message.from_user.username
     await add_user(user, username)
-
     check = await check_subs_channel(message)
     if check:
         await message.answer(f"Assalomu aleykom")
@@ -23,16 +22,12 @@ async def bot_start(message: Message):
         await message.answer(msg, reply_markup=btn)
 
 
-
-
 async def check_subscription(call: CallbackQuery):
-
     check = await check_subs_channel(call)
     if check:
         await call.message.edit_text("Siz Kanallarga Obuna bo`lmayabsiz")
     else:
         await call.answer("Siz Berilgan Kanallarga Obuna Bo`ling", show_alert=True)
-
 
 
 async def get_user_text_handler(message: Message):
